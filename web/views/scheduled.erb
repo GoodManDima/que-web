@@ -3,7 +3,7 @@
     <h1><%= @list.total %> Scheduled Job<%= @list.total == 1 ? "" : "s" %></h1>
   </div>
   <div class="small-12 medium-4 columns">
-    <%== erb :_search %>
+    <%= erb :_search %>
   </div>
 </div>
 <div class="row">
@@ -23,8 +23,8 @@
         <% @list.page_jobs.each do |job| %>
           <tr>
             <td>
-              <a href="<%= link_to "jobs/#{job.job_id}" %>"><%== relative_time job.run_at %></a>
-              <%== erb :_past_due, locals: {job: job}%>
+              <a href="<%= link_to "jobs/#{job.job_id}" %>"><%= relative_time job.run_at %></a>
+              <%= erb :_past_due, locals: {job: job}%>
             </td>
             <td><%= job.job_class %></td>
             <td><%= job.queue %></td>
@@ -49,6 +49,6 @@
 </div>
 <div class="row">
   <div class="small-12 columns">
-    <%== erb :_pager %>
+    <%= erb :_pager %>
   </div>
 </div>
